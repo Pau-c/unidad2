@@ -8,4 +8,5 @@ dependencies = [
     "jupyter>=1.1.1",
     "pandas>=2.3.2",
     "plotly>=6.3.0",
+    "supabase>=2.20.0",
 ]

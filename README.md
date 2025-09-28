@@ -23,7 +23,7 @@
 >uv venv
 
 
-### - Sincronizar entorno virtual
+### - Sincronizar entorno virtual al instalar el proyecto y luego de cada cambio en el .toml
 >uv sync
 
 
