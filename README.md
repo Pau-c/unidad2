@@ -21,6 +21,15 @@
 ### - Bajar dataset, nos vamos a centrar en el archivo `streaming_songs.csv'
 [Dataset original](https://www.kaggle.com/datasets/ludmin/billboard?resource=download)
 
+
+
+prueba yo ariel.
+
+
+
+
+
+
 ### - Instalar uv en la pc si es necesario
 
 ### - Clonar repo:
