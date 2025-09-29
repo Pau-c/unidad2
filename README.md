@@ -1,5 +1,5 @@
 # Laboratorio unidad 2 -Debuggers Unidos -Grupo 10
-prueba
+
 ## Integrantes
 
 - ARIEL OMAR LECHE
