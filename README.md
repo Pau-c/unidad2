@@ -18,6 +18,9 @@
 > [Live Demo](https://deepnote.com/workspace/test-a96860ea-b228-4e9e-a13d-9edd20f60d93/project/MP-Cs-Untitled-project-a2cd30de-aa34-492f-bd7f-baf47d78ec21/notebook/ej3u2-47c02c388b264ca69ce0f37ecfdb9215?utm_content=a2cd30de-aa34-492f-bd7f-baf47d78ec21)
 
 ## Instrucciones 
+### - Bajar dataset, nos vamos a centrar en el archivo `streaming_songs.csv'
+[Dataset original](https://www.kaggle.com/datasets/ludmin/billboard?resource=download)
+
 ### - Instalar uv en la pc si es necesario
 
 ### - Clonar repo:
