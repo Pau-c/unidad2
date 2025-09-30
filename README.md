@@ -113,8 +113,8 @@ ariel Propone: aca detallar cada rama y que funcion cumple cada item
 >SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6I
 
 ### - Crear entorno virtual:
-
-    Previo tener instalado el entorno con pip install uv ejecutando en la terminal del IDE
+Previo tener instalado el entorno con pip install uv ejecutando en la terminal del IDE
+```
 uv venv
 ```
 
@@ -136,14 +136,15 @@ uv sync
 #### asegurarse estar en el etorno correcto y activado: De ser necesario correr en terminal: `.venv\Scripts\activate`
 
 ## correr archivo en terminal con:
+
 ```
  uv run --env-file .env jupyter lab
 ```
 
-- Una vez abierto el notebook en el browser, de ser necesario ir a run -> `restart kernel and run all cells`
+> - Una vez abierto el notebook en el browser, de ser necesario ir a run -> `restart kernel and run all cells`
+
 
 <!-- PROJECT SHIELDS VARIABLES-->
-
 [deepnote-shield]:https://img.shields.io/badge/Live-Deepnote-black?style=flat&labelColor=%23808080k&color=de6d40&logo=deepnote&logoColor=white
 [deepnote-url]: https://deepnote.com/
 [dotenv-shield]:https://img.shields.io/badge/env-dotenv-black?style=flat&labelColor=%23808080k&color=fec260&logo=dotenv&logoColor=white
