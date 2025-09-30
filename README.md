@@ -64,6 +64,14 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
 		    importar CVS directo a BD
 
 ---
+## Base de datos en Supabase 
+- crear nuevo proyecto: elegir region y password (generar password, copiarlo y guardarlo)
+- Ir a la barra de la izq, table editor, crear nueva tabla, elegir nombre: `Dataset_Ranking`, click en boton importar data de .CSV -> elegir archivo `dataset_artistas_CSV` y guardar.
+- En barra lateral ir a `project settings` -> api keys y copiar la de anon public
+- En barra lateral ir a `data api`: copiar direccion de project url para usar en los siguientes pasos.
+- Para que se tenga acceso a la tabla en la barra lateral ir a authentication -> policies y `Enable read access for all users`
+
+---
 
 ## 🛠️ Requisitos e Instalación
 
@@ -71,43 +79,49 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
 [![deepnoteBadge][deepnote-shield]][deepnote-url]
 [![pythonBadge][python-shield]][python-url]
 [![pandasBadge][pandas-shield]][pandas-url]
-[![matplotlibBadge][matplotlib-shield]][matplotlib-url]
 [![plotlyBadge][plotly-shield]][plotly-url]
 [![uvBadge][uv-shield]][uv-url]
 [![supabaseBadge][supabase-shield]][supabase-url]
 [![jupyterBadge][jupyter-shield]][jupyter-url]
+[![dotenvBadge][dotenv-shield]][dotenv-url]
 <!-- PROJECT SHIELDS -->
 
 Ariel propone : aca poner resumen de librerias, software / programas con sus versiones, link y version de github, notebook y su version,
 
 
-### - Instalar uv en la pc si es necesario
->Windows: powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+### - Instalar uv en la pc si es necesario (en terminal de Windows):
+```
+ powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
 
 ### - Clonar repo:
->git clone https://github.com/Pau-c/unidad2.git
+```
+git clone https://github.com/Pau-c/unidad2.git
+```
+
 ## ⚙️ Estructura del Repositorio
 
 ariel Propone: aca detallar cada rama y que funcion cumple cada item
 
+### - Abrir proyecto en un IDE
+### - Crear un archivo en la raíz del proyecto llamado .env
+- Dentro pegar la url y la key de supabase que se copiaron antes siguiendo este formato (sin espacios ni comillas):
+>SUPABASE_URL=https://nbctuthbio.supabase.co
 
+>SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6I
 
 ### - Crear entorno virtual:
->uv venv
-
+```
+uv venv
+```
 
 ### - Sincronizar entorno virtual al instalar el proyecto y luego de cada cambio en el .toml
->uv sync
-
+```
+uv sync
+```
 
 ### -Elegir kernel
-
-
-```
-Para que el código del notebook funcione,  indicarle a VS Code que utilice el Python que está dentro del nuevo entorno. Esto se hace dentro de la interfaz del notebook:
-```
-
-
+>Para que el código del notebook funcione,  indicarle a VS Code que utilice el Python >que está dentro del nuevo entorno. Esto se hace dentro de la interfaz del notebook:
 
 > [!IMPORTANT]
 > Abrir el archivo `.ipynb` en VS Code.
@@ -118,21 +132,26 @@ Para que el código del notebook funcione,  indicarle a VS Code que utilice el P
 
 #### asegurarse estar en el etorno correcto y activado: De ser necesario correr en terminal: `.venv\Scripts\activate`
 
+## correr archivo en terminal con:
+```
+ uv run --env-file .env jupyter lab
+```
 
+- Una vez abierto el notebook en el browser, de ser necesario ir a run -> `restart kernel and run all cells`
 
 <!-- PROJECT SHIELDS VARIABLES-->
 
 [deepnote-shield]:https://img.shields.io/badge/Live-Deepnote-black?style=flat&labelColor=%23808080k&color=de6d40&logo=deepnote&logoColor=white
 [deepnote-url]: https://deepnote.com/
-[matplotlib-shield]:https://img.shields.io/badge/Data_Viz-matplotlib-black?style=flat&labelColor=%23808080k&color=fec260
-[matplotlib-url]:https://matplotlib.org/
+[dotenv-shield]:https://img.shields.io/badge/env-dotenv-black?style=flat&labelColor=%23808080k&color=fec260&logo=dotenv&logoColor=white
+[dotenv-url]:https://pypi.org/project/python-dotenv/
 [pandas-shield]:https://img.shields.io/badge/Data_analysis-Pandas-black?style=flat&labelColor=%23808080k&color=453076&logo=pandas
 [pandas-url]:https://pandas.pydata.org/
 [python-shield]:https://img.shields.io/badge/Language-Python-black?style=flat&labelColor=%23808080k&color=2a0944&logo=python&logoColor=white
 [python-url]: https://www.python.org/
 [plotly-shield]:https://img.shields.io/badge/Data_Viz-Plotly-black?style=flat&labelColor=%23808080k&color=9ABF80&logo=plotly&logoColor=white
 [plotly-url]: https://plotly.com/python/
-[uv-shield]:https://img.shields.io/badge/Dependencias-UV-black?style=flat&labelColor=%23808080k&color=2a0944&logo=python&logoColor=white
+[uv-shield]:https://img.shields.io/badge/Dependencias-UV-black?style=flat&labelColor=%23808080k&color=2a0944&logo=uv&logoColor=white
 [uv-url]: https://github.com/astral-sh/uv
 [supabase-shield]:https://img.shields.io/badge/DB-supabase-black?style=flat&labelColor=%23808080k&color=166866&logo=supabase&logoColor=white
 [supabase-url]: https://supabase.com/
