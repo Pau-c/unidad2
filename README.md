@@ -90,6 +90,8 @@ Ariel propone : aca poner resumen de librerias, software / programas con sus ver
 
 
 ### - Instalar uv en la pc si es necesario (en terminal de Windows):
+
+   Abrir un pront CMD en win  o temrinal ID, ver el pront con PS:>    y ejecutar
 ```
  powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
@@ -111,7 +113,8 @@ ariel Propone: aca detallar cada rama y que funcion cumple cada item
 >SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6I
 
 ### - Crear entorno virtual:
-```
+
+    Previo tener instalado el entorno con pip install uv ejecutando en la terminal del IDE
 uv venv
 ```
 
