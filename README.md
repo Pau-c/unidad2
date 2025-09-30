@@ -113,7 +113,7 @@ ariel Propone: aca detallar cada rama y que funcion cumple cada item
 >SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6I
 
 ### - Crear entorno virtual:
-Previo tener instalado el entorno con pip install uv ejecutando en la terminal del IDE
+Si todavía no se instaló uv en el sistema como en el primer paso, en terminal: `pip install uv` y luego  ejecutar:
 ```
 uv venv
 ```
@@ -141,7 +141,7 @@ uv sync
  uv run --env-file .env jupyter lab
 ```
 
-> - Una vez abierto el notebook en el browser, de ser necesario ir a run -> `restart kernel and run all cells`
+> - Una vez abierto el notebook .ipynb en el browser, en la esquina superior derecha Hacer clic en `ipkernel` y elegir `start python kernel -Python 3`. de ser necesario ir al menú: run -> `restart kernel and run all cells`
 
 
 <!-- PROJECT SHIELDS VARIABLES-->
