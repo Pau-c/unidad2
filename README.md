@@ -73,6 +73,10 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
 
 ---
 
+## ⚙️ Estructura del Repositorio
+
+ariel Propone: aca detallar cada rama y que funcion cumple cada item
+
 ## 🛠️ Requisitos e Instalación
 
 <!-- PROJECT SHIELDS -->
@@ -87,7 +91,9 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
 <!-- PROJECT SHIELDS -->
 
 Ariel propone : aca poner resumen de librerias, software / programas con sus versiones, link y version de github, notebook y su version,
-
+***************************************************************************************************************
+PASOS PARA USAR IDE con UV y COMENZAR DESA
+****************************************************************************************************************
 
 ### - Instalar uv en la pc si es necesario (en terminal de Windows):
 
@@ -101,9 +107,6 @@ Ariel propone : aca poner resumen de librerias, software / programas con sus ver
 git clone https://github.com/Pau-c/unidad2.git
 ```
 
-## ⚙️ Estructura del Repositorio
-
-ariel Propone: aca detallar cada rama y que funcion cumple cada item
 
 ### - Abrir proyecto en un IDE
 ### - Crear un archivo en la raíz del proyecto llamado .env
