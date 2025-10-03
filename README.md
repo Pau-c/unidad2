@@ -194,7 +194,6 @@ uv sync
 
 
 ---
-
 ## 🔄 Flujo de Trabajo del Proyecto
 
 Este diagrama ilustra el proceso completo, desde la obtención de datos hasta la visualización final, pasando por las etapas clave de ETL y desarrollo en el entorno `uv`.
@@ -202,32 +201,32 @@ Este diagrama ilustra el proceso completo, desde la obtención de datos hasta la
 ```mermaid
 graph TD
     %% Estilos
-    classDef source fill:#F9E79F,stroke:#D68910,stroke-width:2px;
-    classDef etl fill:#A9CCE3,stroke:#3498DB,stroke-width:2px;
-    classDef dev fill:#D5F5E3,stroke:#2ECC71,stroke-width:2px;
-    classDef prod fill:#FADBD8,stroke:#E74C3C,stroke-width:2px;
+    classDef source fill:#F9E79F,stroke:#D68910,stroke-width:2px
+    classDef etl fill:#A9CCE3,stroke:#3498DB,stroke-width:2px
+    classDef dev fill:#D5F5E3,stroke:#2ECC71,stroke-width:2px
+    classDef prod fill:#FADBD8,stroke:#E74C3C,stroke-width:2px
 
     %% Nodos
-    A[Dataset Original - Kaggle] --> B[Descarga streaming_songs.csv];
-    B -- Archivo CSV --> C{PROCESO ETL - Transformacion};
-    C --> D[Limpieza Creacion ID Normalizacion de Nulos];
-    D -- Datos Limpios --> E[dataset_artistas_CSV_PARA_BD.csv];
-    E -- Importar Data --> F[Carga a Supabase Tabla Dataset_Ranking];
+    A[Dataset Original - Kaggle] --> B[Descarga streaming_songs.csv]
+    B -- Archivo CSV --> C{PROCESO ETL - Transformacion}
+    C --> D[Limpieza Creacion ID Normalizacion de Nulos]
+    D -- Datos Limpios --> E[dataset_artistas_CSV_PARA_BD.csv]
+    E -- Importar Data --> F[Carga a Supabase Tabla Dataset_Ranking]
 
-    F -- Credenciales API --> G[Clonar Repo y Configurar .env];
-    G --> H[uv venv / uv sync - Configurar Entorno Virtual];
-    H --> I[Conexion a Supabase - Variables Entorno];
-    I -- Datos SQL --> J[Notebook ej3u2.ipynb - Trabajar DataFrame];
-    J -- Codigo Ejecutado --> K[Analisis Exploracion y Visualizacion con Plotly];
+    F -- Credenciales API --> G[Clonar Repo y Configurar .env]
+    G --> H[uv venv / uv sync - Configurar Entorno Virtual]
+    H --> I[Conexion a Supabase - Variables Entorno]
+    I -- Datos SQL --> J[Notebook ej3u2.ipynb - Trabajar DataFrame]
+    J -- Codigo Ejecutado --> K[Analisis Exploracion y Visualizacion con Plotly]
 
-    K -- Pruebas y Desarrollo --> L[Visualizacion Local - Jupyter Lab];
-    K -- Despliegue Cloud --> M[Live Demo en Deepnote.com];
+    K -- Pruebas y Desarrollo --> L[Visualizacion Local - Jupyter Lab]
+    K -- Despliegue Cloud --> M[Live Demo en Deepnote.com]
 
     %% Aplicar Estilos a las Secciones
-    class A, B source;
-    class C, D, E, F etl;
-    class G, H, I, J dev;
-    class K, L, M prod;
+    class A, B source
+    class C, D, E, F etl
+    class G, H, I, J dev
+    class K, L, M prod
 
     %% Subgráficos (Agrupacion)
     subgraph 1. Datos Fuente
