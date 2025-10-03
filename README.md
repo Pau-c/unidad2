@@ -75,6 +75,12 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
 - En barra lateral ir a `data api`: copiar direccion de project url para usar en los siguientes pasos.
 - Para que se tenga acceso a la tabla en la barra lateral ir a authentication -> policies y `Enable read access for all users`
   Nota: se encuentra scrip de creacion de tabla e insert de los 33050 registros en repositorio=> unidad2\archivos\Creacion_e_insert_Dataset_Ranking_full.sql , podria usar la consola de supabase de 1000 regristros para insert manualmente.
+
+  En el repo puede encontrar el data dataset original, el transformado en csv a cargar en supabase y el scrip para crear tabla e insert de registros.
+  archivos/
+│   ├── Creacion_e_insert_Dataset_Ranking_full.sql
+│   ├── dataset_artistas_CSV.csv
+│   └── streaming_songs_original.csv
 ---
 ``` 
 ## ⚙️ Estructura del Repositorio
