@@ -42,10 +42,10 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
             Cantidad de registros (null o faltantes) por columna  
                     Date(100% ok),Song,Artist(100% ok),Rank(100% ok),Last Week(100% ok),Peak Position(100% ok),Weeks in Charts(100% ok)
 
-
+``` 
+      
       # DICCIONARIO DE DATOS DEL DATASET
-```
-             
+            
                     1-Date: Tipo: Fecha (formato yyyy/mm/dd) Descripción: Fecha en la que se registró el ranking de la canción.
                     2-Song: Tipo: Texto (string) Descripción: Nombre de la canción en el ranking.
                     3-Artist: Tipo: Texto (string) Descripción: Nombre del artista o grupo musical (puede incluir “Featuring” sí hay colaboraciones).
@@ -78,7 +78,7 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
 - Para que se tenga acceso a la tabla en la barra lateral ir a authentication -> policies y `Enable read access for all users`
 
 ---
-
+``` 
 ## ⚙️ Estructura del Repositorio
 
 UNIDAD2/
@@ -104,7 +104,7 @@ UNIDAD2/
 ├── pyproject.toml
 ├── README.md
 └── uv.lock
-
+``` 
 ## 🛠️ Requisitos e Instalación
 
 <!-- PROJECT SHIELDS -->
