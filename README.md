@@ -194,33 +194,4 @@ uv sync
 
 
 ---
-## 🔄 Flujo de Trabajo del Proyecto
 
-Este diagrama ilustra el proceso completo, desde la obtención de datos hasta la visualización final.
-
-1. **DATOS FUENTE**
-   - Descarga del archivo `streaming_songs.csv` (Kaggle).
-
-2. **PROCESO ETL (Transformación)**
-   - **Limpieza de Datos:** Eliminar columnas y normalizar nombres.
-   - **Creación de ID:** Añadir columna de identificador único.
-   - **Manejo de Nulos:** Reemplazar valores faltantes (`-` o `null`) por `0`.
-   - **Resultado:** Generación del archivo limpio `dataset_artistas_CSV_PARA_BD.csv`.
-
-3. **CARGA A LA BASE DE DATOS**
-   - Importación del CSV limpio para crear la tabla `Dataset_Ranking` en **Supabase**.
-
-4. **CONFIGURACIÓN DEL ENTORNO DE DESARROLLO**
-   - Clonar el repositorio y configurar las credenciales en el archivo **`.env`**.
-   - Crear y sincronizar el entorno virtual con **`uv venv`** y **`uv sync`**.
-
-5. **ANÁLISIS Y EXPLORACIÓN (JUPYTER)**
-   - La Notebook (`ej3u2.ipynb`) se conecta a Supabase (usando el `.env`).
-   - Se recuperan los datos en un DataFrame de Pandas.
-   - Se realiza el Análisis, Exploración y **Visualización con Plotly**.
-
-6. **VISUALIZACIÓN Y PRODUCCIÓN**
-   - **Pruebas Locales:** Ejecución con `uv run jupyter lab`.
-   - **Demo en Nube:** Demostración final en **Deepnote.com**.
-
----
