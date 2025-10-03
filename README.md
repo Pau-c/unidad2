@@ -193,34 +193,43 @@ uv sync
 [jupyter-url]: https://jupyter.org/
 
 
----
-## 🔄 Flujo de Trabajo del Proyecto
+flowchart TD
 
-Este diagrama ilustra el proceso completo, desde la obtención de datos hasta la visualización final.
+    %% FUENTE DE DATOS
+    A[📂 Fuente de Datos\nstreaming_songs.csv (Kaggle)] --> B[⚙️ Proceso ETL]
 
-1. **DATOS FUENTE**
-   - Descarga del archivo `streaming_songs.csv` (Kaggle).
+    %% ETL
+    subgraph ETL[Proceso ETL]
+        B1[Limpieza de datos\n(eliminar columnas, normalizar nombres)]
+        B2[Creación de ID único]
+        B3[Manejo de nulos\n(-, null → 0)]
+        B4[Salida:\ndataset_artistas_CSV_PARA_BD.csv]
+        B1 --> B2 --> B3 --> B4
+    end
 
-2. **PROCESO ETL (Transformación)**
-   - **Limpieza de Datos:** Eliminar columnas y normalizar nombres.
-   - **Creación de ID:** Añadir columna de identificador único.
-   - **Manejo de Nulos:** Reemplazar valores faltantes (`-` o `null`) por `0`.
-   - **Resultado:** Generación del archivo limpio `dataset_artistas_CSV_PARA_BD.csv`.
+    B4 --> C[🗄️ Supabase\n(Carga de tabla Dataset_Ranking)]
 
-3. **CARGA A LA BASE DE DATOS**
-   - Importación del CSV limpio para crear la tabla `Dataset_Ranking` en **Supabase**.
+    %% ENTORNO DEV
+    subgraph DEV[Configuración del Entorno de Desarrollo]
+        D1[Clonar repositorio]
+        D2[Configurar credenciales\n(.env)]
+        D3[Crear venv con uv venv\n+ uv sync]
+    end
+    C --> DEV
 
-4. **CONFIGURACIÓN DEL ENTORNO DE DESARROLLO**
-   - Clonar el repositorio y configurar las credenciales en el archivo **`.env`**.
-   - Crear y sincronizar el entorno virtual con **`uv venv`** y **`uv sync`**.
+    %% NOTEBOOK
+    subgraph Jupyter[Análisis y Exploración]
+        E1[ej3u2.ipynb]
+        E2[Conexión a Supabase\nusando .env]
+        E3[DataFrame Pandas]
+        E4[Exploración, análisis y\nvisualización con Plotly]
+        E1 --> E2 --> E3 --> E4
+    end
+    DEV --> Jupyter
 
-5. **ANÁLISIS Y EXPLORACIÓN (JUPYTER)**
-   - La Notebook (`ej3u2.ipynb`) se conecta a Supabase (usando el `.env`).
-   - Se recuperan los datos en un DataFrame de Pandas.
-   - Se realiza el Análisis, Exploración y **Visualización con Plotly**.
-
-6. **VISUALIZACIÓN Y PRODUCCIÓN**
-   - **Pruebas Locales:** Ejecución con `uv run jupyter lab`.
-   - **Demo en Nube:** Demostración final en **Deepnote.com**.
-
----
+    %% VISUALIZACIÓN FINAL
+    subgraph VIS[Visualización y Producción]
+        F1[Pruebas Locales:\nuv run jupyter lab]
+        F2[Demo en Nube:\nDeepnote.com]
+    end
+    Jupyter --> VIS
