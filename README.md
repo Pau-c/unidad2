@@ -66,9 +66,7 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
                                     ID,Date,Song,Artist,Rank,Last Week,Peak_Position,Weeks_in_Charts
             Generar nuevo archivo .CSV con nombre= dataset_artistas_CSV_PARA_BD.csv
 
-     Proceso de migración a BD ( corregir que hacemos con el tema del scrip)
-		    importar CVS directo a BD
-
+     
 ---
 ## Base de datos en Supabase 
 - crear nuevo proyecto: elegir region y password (generar password, copiarlo y guardarlo)
@@ -76,7 +74,7 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
 - En barra lateral ir a `project settings` -> api keys y copiar la de anon public
 - En barra lateral ir a `data api`: copiar direccion de project url para usar en los siguientes pasos.
 - Para que se tenga acceso a la tabla en la barra lateral ir a authentication -> policies y `Enable read access for all users`
-
+  Nota: se encuentra scrip de creacion de tabla e insert de los 33050 registros en repositorio=> unidad2\archivos\Creacion_e_insert_Dataset_Ranking_full.sql , podria usar la consola de supabase de 1000 regristros para insert manualmente.
 ---
 ``` 
 ## ⚙️ Estructura del Repositorio
