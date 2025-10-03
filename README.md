@@ -206,18 +206,17 @@ graph TD
     %% Nodos
     A[Dataset Original - Kaggle] --> B[Descarga streaming_songs.csv];
     B -- Archivo CSV --> C{PROCESO ETL - Transformación};
-    C --> D[Limpieza, Creación de ID, Normalización de Nulos];
+    C --> D[Limpieza, Creacion ID, Normalizacion de Nulos];
     D -- Datos Limpios --> E[dataset_artistas_CSV_PARA_BD.csv];
     E -- Importar Data --> F[Carga a Supabase: Tabla Dataset_Ranking];
 
     F -- Credenciales API --> G[Clonar Repo y Configurar .env];
     G --> H[uv venv / uv sync: Configurar Entorno Virtual];
-    I[Conexión a Supabase (usando variables de entorno)] --> J[Notebook ej3u2.ipynb: Trabajar DataFrame];
-    G --> H;
-    H --> I;
-    J --> K[Análisis, Exploración y Visualización con Plotly];
+    H --> I[Conexion a Supabase / uso de variables env];
+    I -- Datos SQL --> J[Notebook ej3u2.ipynb: Trabajar DataFrame];
+    J -- Codigo Ejecutado --> K[Analisis, Exploracion y Visualizacion con Plotly];
 
-    K -- Pruebas y Desarrollo --> L[Visualización Local (uv run jupyter lab)];
+    K -- Pruebas y Desarrollo --> L[Visualizacion Local (jupyter lab)];
     K -- Despliegue Cloud --> M[Live Demo en Deepnote.com];
 
     %% Aplicar Estilos a las Secciones
@@ -237,13 +236,13 @@ graph TD
         E
         F
     end
-    subgraph 3. Desarrollo y Análisis (Entorno UV)
+    subgraph 3. Desarrollo y Analisis (Entorno UV)
         G
         H
         I
         J
     end
-    subgraph 4. Visualización y Producción
+    subgraph 4. Visualizacion y Produccion
         K
         L
         M
