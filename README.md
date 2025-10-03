@@ -189,3 +189,72 @@ uv sync
 [supabase-url]: https://supabase.com/
 [jupyter-shield]:https://img.shields.io/badge/Notebook-jupyter-black?style=flat&labelColor=%23808080k&color=fec260&logo=Jupyter&logoColor=white
 [jupyter-url]: https://jupyter.org/
+
+
+## 🔄 Flujo de Trabajo del Proyecto
+
+Este diagrama ilustra el proceso completo, desde la obtención de datos hasta la visualización final.
+
+```mermaid
+graph TD
+    %% Estilos
+    classDef source fill:#F9E79F,stroke:#D68910,stroke-width:2px;
+    classDef etl fill:#A9CCE3,stroke:#3498DB,stroke-width:2px;
+    classDef dev fill:#D5F5E3,stroke:#2ECC71,stroke-width:2px;
+    classDef prod fill:#FADBD8,stroke:#E74C3C,stroke-width:2px;
+
+    %% Nodos
+    A[Dataset Original (Kaggle)] --> B(Descarga streaming_songs.csv);
+    B --> C{PROCESO ETL - Transformación};
+    C --> D[Limpieza, Creación de ID, Normalización, Reemplazo de Nulos];
+    D --> E[dataset_artistas_CSV_PARA_BD.csv];
+    E --> F[Carga a Supabase: Tabla Dataset_Ranking];
+
+    F --> G(Clonar Repo + Configurar .env);
+    G --> H(uv venv / uv sync: Configurar Entorno Virtual);
+    H --> I[Conexión a Supabase (usando .env)];
+    I --> J(Notebook ej3u2.ipynb: Recuperar y Trabajar DataFrame);
+    J --> K[Análisis, Exploración y Visualización con Plotly];
+
+    K --> L(uv run jupyter lab: Visualización Local);
+    K --> M[Live Demo en Deepnote.com];
+
+    %% Conexiones con Nombres de Flujo
+    B -- Archivo CSV --> C;
+    C -- Datos Limpios --> E;
+    E -- Importar Data --> F;
+    F -- Credenciales API --> I;
+    I -- Datos SQL --> J;
+    J -- Código Ejecutado --> K;
+    K -- Pruebas y Desarrollo --> L;
+    K -- Despliegue Cloud --> M;
+
+    %% Aplicar Estilos a las Secciones
+    class A, B source;
+    class C, D, E, F etl;
+    class G, H, I, J dev;
+    class K, L, M prod;
+
+    %% Subgráficos (Agrupación)
+    subgraph 1. Datos Fuente
+        A
+    end
+    subgraph 2. ETL y Base de Datos (Supabase)
+        B
+        C
+        D
+        E
+        F
+    end
+    subgraph 3. Desarrollo y Análisis (Entorno UV)
+        G
+        H
+        I
+        J
+    end
+    subgraph 4. Visualización y Producción
+        K
+        L
+        M
+    end
+    ```
