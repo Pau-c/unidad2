@@ -210,11 +210,12 @@ graph TD
     D -- Datos Limpios --> E[dataset_artistas_CSV_PARA_BD.csv];
     E -- Importar Data --> F[Carga a Supabase: Tabla Dataset_Ranking];
 
-    F -- Credenciales API --> G[Clonar Repo + Configurar .env];
+    F -- Credenciales API --> G[Clonar Repo y Configurar .env];
     G --> H[uv venv / uv sync: Configurar Entorno Virtual];
-    H --> I[Conexión a Supabase (usando .env)];
-    I -- Datos SQL --> J[Notebook ej3u2.ipynb: Trabajar DataFrame];
-    J -- Código Ejecutado --> K[Análisis, Exploración y Visualización con Plotly];
+    I[Conexión a Supabase (usando variables de entorno)] --> J[Notebook ej3u2.ipynb: Trabajar DataFrame];
+    G --> H;
+    H --> I;
+    J --> K[Análisis, Exploración y Visualización con Plotly];
 
     K -- Pruebas y Desarrollo --> L[Visualización Local (uv run jupyter lab)];
     K -- Despliegue Cloud --> M[Live Demo en Deepnote.com];
