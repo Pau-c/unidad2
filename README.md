@@ -193,7 +193,7 @@ uv sync
 
 ## 🔄 Flujo de Trabajo del Proyecto
 
-Este diagrama ilustra el proceso completo, desde la obtención de datos hasta la visualización final.
+Este diagrama ilustra el proceso completo, desde la obtención de datos hasta la visualización final, pasando por las etapas clave de ETL y desarrollo en el entorno `uv`.
 
 ```mermaid
 graph TD
@@ -204,30 +204,20 @@ graph TD
     classDef prod fill:#FADBD8,stroke:#E74C3C,stroke-width:2px;
 
     %% Nodos
-    A[Dataset Original (Kaggle)] --> B(Descarga streaming_songs.csv);
-    B --> C{PROCESO ETL - Transformación};
-    C --> D[Limpieza, Creación de ID, Normalización, Reemplazo de Nulos];
-    D --> E[dataset_artistas_CSV_PARA_BD.csv];
-    E --> F[Carga a Supabase: Tabla Dataset_Ranking];
+    A[Dataset Original - Kaggle] --> B[Descarga streaming_songs.csv];
+    B -- Archivo CSV --> C{PROCESO ETL - Transformación};
+    C --> D[Limpieza, Creación de ID, Normalización de Nulos];
+    D -- Datos Limpios --> E[dataset_artistas_CSV_PARA_BD.csv];
+    E -- Importar Data --> F[Carga a Supabase: Tabla Dataset_Ranking];
 
-    F --> G(Clonar Repo + Configurar .env);
-    G --> H(uv venv / uv sync: Configurar Entorno Virtual);
+    F -- Credenciales API --> G[Clonar Repo + Configurar .env];
+    G --> H[uv venv / uv sync: Configurar Entorno Virtual];
     H --> I[Conexión a Supabase (usando .env)];
-    I --> J(Notebook ej3u2.ipynb: Recuperar y Trabajar DataFrame);
-    J --> K[Análisis, Exploración y Visualización con Plotly];
+    I -- Datos SQL --> J[Notebook ej3u2.ipynb: Trabajar DataFrame];
+    J -- Código Ejecutado --> K[Análisis, Exploración y Visualización con Plotly];
 
-    K --> L(uv run jupyter lab: Visualización Local);
-    K --> M[Live Demo en Deepnote.com];
-
-    %% Conexiones con Nombres de Flujo
-    B -- Archivo CSV --> C;
-    C -- Datos Limpios --> E;
-    E -- Importar Data --> F;
-    F -- Credenciales API --> I;
-    I -- Datos SQL --> J;
-    J -- Código Ejecutado --> K;
-    K -- Pruebas y Desarrollo --> L;
-    K -- Despliegue Cloud --> M;
+    K -- Pruebas y Desarrollo --> L[Visualización Local (uv run jupyter lab)];
+    K -- Despliegue Cloud --> M[Live Demo en Deepnote.com];
 
     %% Aplicar Estilos a las Secciones
     class A, B source;
@@ -257,4 +247,3 @@ graph TD
         L
         M
     end
-    ```
