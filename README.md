@@ -7,11 +7,15 @@
 
 ## Integrantes
 
-- ARIEL OMAR LECHE
-- DIEGO ARIEL GUTIERREZ MIRANDA
-- JOSE ALBERTO RUBIO
-- MARIA PAULA COBAS
-- MAURO RUBEN DE NATALE
+| Nombre                        | Correo Electrónico             | Usuario Github |
+|-------------------------------|--------------------------------|----------------|
+| Ariel Omar Leche              | ariel.leche@gmail.com          | ARielleche     |
+| Diego Ariel Gutierrez         | dgutierrez.m79@gmail.com       | Diego-wert89   |
+| José Alberto Rubio            | rubiojosealberto@gmail.com     | rubiojar       |
+| Maria Paula Coba              | mpcobas@gmail.com              | Pau-c          |
+| Mauro Ruben De Natale         | maurodenatale@gmail.com        | M3T30R0-dev    |
+
+
 
 > [!TIP]
 > [Live Demo](https://deepnote.com/workspace/test-a96860ea-b228-4e9e-a13d-9edd20f60d93/project/MP-Cs-Untitled-project-a2cd30de-aa34-492f-bd7f-baf47d78ec21/notebook/ej3u2-47c02c388b264ca69ce0f37ecfdb9215?utm_content=a2cd30de-aa34-492f-bd7f-baf47d78ec21)
@@ -27,7 +31,8 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
 
 ## PROCESO ETL 
 
-	Proceso exploratorio
+      ##Proceso exploratorio
+
             Nombre de archivo CVS descargado= streaming_songs.csv
             Cantidad de columnas: 8
             Date,Song,Artist,Rank,Last Week,Peak Position,Weeks in Charts,Image URL
@@ -36,10 +41,11 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
             Limpieza ( se borra última columna  “ image URL” )   
             Cantidad de registros (null o faltantes) por columna  
                     Date(100% ok),Song,Artist(100% ok),Rank(100% ok),Last Week(100% ok),Peak Position(100% ok),Weeks in Charts(100% ok)
-## DICCIONARIO DE DATOS DEL DATASET
-```
-             
 
+``` 
+      
+      # DICCIONARIO DE DATOS DEL DATASET
+            
                     1-Date: Tipo: Fecha (formato yyyy/mm/dd) Descripción: Fecha en la que se registró el ranking de la canción.
                     2-Song: Tipo: Texto (string) Descripción: Nombre de la canción en el ranking.
                     3-Artist: Tipo: Texto (string) Descripción: Nombre del artista o grupo musical (puede incluir “Featuring” sí hay colaboraciones).
@@ -50,7 +56,7 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
 
               
 ```	
-## Proceso de Transformación 
+      ##   Proceso de Transformación 
 		    Nota: usar cualquier herramienta de edición o código.
 		    Limpieza ( se borra última columna  “ image URL”)
 		    Editar CSV  creando  columna ID (tabulación “Id,”)
@@ -60,9 +66,7 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
                                     ID,Date,Song,Artist,Rank,Last Week,Peak_Position,Weeks_in_Charts
             Generar nuevo archivo .CSV con nombre= dataset_artistas_CSV_PARA_BD.csv
 
-     Proceso de migración a BD ( corregir que hacemos con el tema del scrip)
-		    importar CVS directo a BD
-
+     
 ---
 ## Base de datos en Supabase 
 - crear nuevo proyecto: elegir region y password (generar password, copiarlo y guardarlo)
@@ -70,13 +74,35 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
 - En barra lateral ir a `project settings` -> api keys y copiar la de anon public
 - En barra lateral ir a `data api`: copiar direccion de project url para usar en los siguientes pasos.
 - Para que se tenga acceso a la tabla en la barra lateral ir a authentication -> policies y `Enable read access for all users`
-
+  Nota: se encuentra scrip de creacion de tabla e insert de los 33050 registros en repositorio=> unidad2\archivos\Creacion_e_insert_Dataset_Ranking_full.sql , podria usar la consola de supabase de 1000 regristros para insert manualmente.
 ---
-
+``` 
 ## ⚙️ Estructura del Repositorio
 
-ariel Propone: aca detallar cada rama y que funcion cumple cada item
-
+UNIDAD2/
+├── .github/
+├── .ipynb_checkpoints/
+│   └── ej3u2-checkpoint.ipynb
+├── .venv/
+│   ├── etc/
+│   ├── Lib/
+│   ├── Scripts/
+│   └── share/
+├── .lock
+├── pyvenv.cfg
+├── archivos/
+│   ├── Creacion_e_insert_Dataset_Ranking_full.sql
+│   ├── dataset_artistas_CSV.csv
+│   └── streaming_songs_original.csv
+├── unidad2/
+├── .env
+├── .gitignore
+├── .python-version
+├── ej3u2.ipynb   =>>>   archivo principal NOTEBOOK
+├── pyproject.toml
+├── README.md
+└── uv.lock
+``` 
 ## 🛠️ Requisitos e Instalación
 
 <!-- PROJECT SHIELDS -->
@@ -90,7 +116,6 @@ ariel Propone: aca detallar cada rama y que funcion cumple cada item
 [![dotenvBadge][dotenv-shield]][dotenv-url]
 <!-- PROJECT SHIELDS -->
 
-Ariel propone : aca poner resumen de librerias, software / programas con sus versiones, link y version de github, notebook y su version,
 ***************************************************************************************************************
 PASOS PARA USAR IDE con UV y COMENZAR DESA
 ****************************************************************************************************************
@@ -164,3 +189,61 @@ uv sync
 [supabase-url]: https://supabase.com/
 [jupyter-shield]:https://img.shields.io/badge/Notebook-jupyter-black?style=flat&labelColor=%23808080k&color=fec260&logo=Jupyter&logoColor=white
 [jupyter-url]: https://jupyter.org/
+
+
+## 🔄 Flujo de Trabajo del Proyecto
+
+Este diagrama ilustra el proceso completo, desde la obtención de datos hasta la visualización final, pasando por las etapas clave de ETL y desarrollo en el entorno `uv`.
+
+```mermaid
+graph TD
+    %% Estilos
+    classDef source fill:#F9E79F,stroke:#D68910,stroke-width:2px;
+    classDef etl fill:#A9CCE3,stroke:#3498DB,stroke-width:2px;
+    classDef dev fill:#D5F5E3,stroke:#2ECC71,stroke-width:2px;
+    classDef prod fill:#FADBD8,stroke:#E74C3C,stroke-width:2px;
+
+    %% Nodos
+    A[Dataset Original - Kaggle] --> B[Descarga streaming_songs.csv];
+    B -- Archivo CSV --> C{PROCESO ETL - Transformación};
+    C --> D[Limpieza, Creación de ID, Normalización de Nulos];
+    D -- Datos Limpios --> E[dataset_artistas_CSV_PARA_BD.csv];
+    E -- Importar Data --> F[Carga a Supabase: Tabla Dataset_Ranking];
+
+    F -- Credenciales API --> G[Clonar Repo + Configurar .env];
+    G --> H[uv venv / uv sync: Configurar Entorno Virtual];
+    H --> I[Conexión a Supabase (usando .env)];
+    I -- Datos SQL --> J[Notebook ej3u2.ipynb: Trabajar DataFrame];
+    J -- Código Ejecutado --> K[Análisis, Exploración y Visualización con Plotly];
+
+    K -- Pruebas y Desarrollo --> L[Visualización Local (uv run jupyter lab)];
+    K -- Despliegue Cloud --> M[Live Demo en Deepnote.com];
+
+    %% Aplicar Estilos a las Secciones
+    class A, B source;
+    class C, D, E, F etl;
+    class G, H, I, J dev;
+    class K, L, M prod;
+
+    %% Subgráficos (Agrupación)
+    subgraph 1. Datos Fuente
+        A
+    end
+    subgraph 2. ETL y Base de Datos (Supabase)
+        B
+        C
+        D
+        E
+        F
+    end
+    subgraph 3. Desarrollo y Análisis (Entorno UV)
+        G
+        H
+        I
+        J
+    end
+    subgraph 4. Visualización y Producción
+        K
+        L
+        M
+    end
