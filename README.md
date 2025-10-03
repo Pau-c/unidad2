@@ -31,7 +31,8 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
 
 ## PROCESO ETL 
 
-#Proceso exploratorio
+      ##Proceso exploratorio
+
             Nombre de archivo CVS descargado= streaming_songs.csv
             Cantidad de columnas: 8
             Date,Song,Artist,Rank,Last Week,Peak Position,Weeks in Charts,Image URL
@@ -55,7 +56,7 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
 
               
 ```	
-# Proceso de Transformación 
+      ##   Proceso de Transformación 
 		    Nota: usar cualquier herramienta de edición o código.
 		    Limpieza ( se borra última columna  “ image URL”)
 		    Editar CSV  creando  columna ID (tabulación “Id,”)
