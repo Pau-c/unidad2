@@ -193,31 +193,57 @@ uv sync
 
 ## 🔄 Flujo de Trabajo del Proyecto
 
-Este diagrama ilustra el proceso completo, desde la obtención de datos hasta la visualización final.
+Este diagrama ilustra el proceso completo, desde la obtención de datos hasta la visualización final, pasando por las etapas clave de ETL y desarrollo en el entorno `uv`.
 
-1. **DATOS FUENTE**
-   - Descarga del archivo `streaming_songs.csv` (Kaggle).
+```mermaid
+graph TD
+    %% Estilos
+    classDef source fill:#F9E79F,stroke:#D68910,stroke-width:2px;
+    classDef etl fill:#A9CCE3,stroke:#3498DB,stroke-width:2px;
+    classDef dev fill:#D5F5E3,stroke:#2ECC71,stroke-width:2px;
+    classDef prod fill:#FADBD8,stroke:#E74C3C,stroke-width:2px;
 
-2. **PROCESO ETL (Transformación)**
-   - **Limpieza de Datos:** Eliminar columnas y normalizar nombres.
-   - **Creación de ID:** Añadir columna de identificador único.
-   - **Manejo de Nulos:** Reemplazar valores faltantes (`-` o `null`) por `0`.
-   - **Resultado:** Generación del archivo limpio `dataset_artistas_CSV_PARA_BD.csv`.
+    %% Nodos
+    A[Dataset Original - Kaggle] --> B[Descarga streaming_songs.csv];
+    B -- Archivo CSV --> C{PROCESO ETL - Transformación};
+    C --> D[Limpieza, Creacion ID, Normalizacion de Nulos];
+    D -- Datos Limpios --> E[dataset_artistas_CSV_PARA_BD.csv];
+    E -- Importar Data --> F[Carga a Supabase: Tabla Dataset_Ranking];
 
-3. **CARGA A LA BASE DE DATOS**
-   - Importación del CSV limpio para crear la tabla `Dataset_Ranking` en **Supabase**.
+    F -- Credenciales API --> G[Clonar Repo y Configurar .env];
+    G --> H[uv venv / uv sync: Configurar Entorno Virtual];
+    H --> I[Conexion a Supabase / uso de variables env];
+    I -- Datos SQL --> J[Notebook ej3u2.ipynb: Trabajar DataFrame];
+    J -- Codigo Ejecutado --> K[Analisis, Exploracion y Visualizacion con Plotly];
 
-4. **CONFIGURACIÓN DEL ENTORNO DE DESARROLLO**
-   - Clonar el repositorio y configurar las credenciales en el archivo **`.env`**.
-   - Crear y sincronizar el entorno virtual con **`uv venv`** y **`uv sync`**.
+    K -- Pruebas y Desarrollo --> L[Visualizacion Local (jupyter lab)];
+    K -- Despliegue Cloud --> M[Live Demo en Deepnote.com];
 
-5. **ANÁLISIS Y EXPLORACIÓN (JUPYTER)**
-   - La Notebook (`ej3u2.ipynb`) se conecta a Supabase (usando el `.env`).
-   - Se recuperan los datos en un DataFrame de Pandas.
-   - Se realiza el Análisis, Exploración y **Visualización con Plotly**.
+    %% Aplicar Estilos a las Secciones
+    class A, B source;
+    class C, D, E, F etl;
+    class G, H, I, J dev;
+    class K, L, M prod;
 
-6. **VISUALIZACIÓN Y PRODUCCIÓN**
-   - **Pruebas Locales:** Ejecución con `uv run jupyter lab`.
-   - **Demo en Nube:** Demostración final en **Deepnote.com**.
-
----
+    %% Subgráficos (Agrupación)
+    subgraph 1. Datos Fuente
+        A
+    end
+    subgraph 2. ETL y Base de Datos (Supabase)
+        B
+        C
+        D
+        E
+        F
+    end
+    subgraph 3. Desarrollo y Analisis (Entorno UV)
+        G
+        H
+        I
+        J
+    end
+    subgraph 4. Visualizacion y Produccion
+        K
+        L
+        M
+    end
