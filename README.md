@@ -98,10 +98,12 @@ UNIDAD2/
 ├── .env
 ├── .gitignore
 ├── .python-version
-├── ej3u2.ipynb   =>>>   archivo principal NOTEBOOK
+├── ej3u2.ipynb
 ├── pyproject.toml
 ├── README.md
 └── uv.lock
+
+
 ``` 
 ## 🛠️ Requisitos e Instalación
 
@@ -191,6 +193,8 @@ uv sync
 [jupyter-url]: https://jupyter.org/
 
 
+---
+
 ## 🔄 Flujo de Trabajo del Proyecto
 
 Este diagrama ilustra el proceso completo, desde la obtención de datos hasta la visualización final, pasando por las etapas clave de ETL y desarrollo en el entorno `uv`.
@@ -205,18 +209,18 @@ graph TD
 
     %% Nodos
     A[Dataset Original - Kaggle] --> B[Descarga streaming_songs.csv];
-    B -- Archivo CSV --> C{PROCESO ETL - Transformación};
-    C --> D[Limpieza, Creacion ID, Normalizacion de Nulos];
+    B -- Archivo CSV --> C{PROCESO ETL - Transformacion};
+    C --> D[Limpieza Creacion ID Normalizacion de Nulos];
     D -- Datos Limpios --> E[dataset_artistas_CSV_PARA_BD.csv];
-    E -- Importar Data --> F[Carga a Supabase: Tabla Dataset_Ranking];
+    E -- Importar Data --> F[Carga a Supabase Tabla Dataset_Ranking];
 
     F -- Credenciales API --> G[Clonar Repo y Configurar .env];
-    G --> H[uv venv / uv sync: Configurar Entorno Virtual];
-    H --> I[Conexion a Supabase / uso de variables env];
-    I -- Datos SQL --> J[Notebook ej3u2.ipynb: Trabajar DataFrame];
-    J -- Codigo Ejecutado --> K[Analisis, Exploracion y Visualizacion con Plotly];
+    G --> H[uv venv / uv sync - Configurar Entorno Virtual];
+    H --> I[Conexion a Supabase - Variables Entorno];
+    I -- Datos SQL --> J[Notebook ej3u2.ipynb - Trabajar DataFrame];
+    J -- Codigo Ejecutado --> K[Analisis Exploracion y Visualizacion con Plotly];
 
-    K -- Pruebas y Desarrollo --> L[Visualizacion Local (jupyter lab)];
+    K -- Pruebas y Desarrollo --> L[Visualizacion Local - Jupyter Lab];
     K -- Despliegue Cloud --> M[Live Demo en Deepnote.com];
 
     %% Aplicar Estilos a las Secciones
@@ -225,7 +229,7 @@ graph TD
     class G, H, I, J dev;
     class K, L, M prod;
 
-    %% Subgráficos (Agrupación)
+    %% Subgráficos (Agrupacion)
     subgraph 1. Datos Fuente
         A
     end
