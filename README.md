@@ -7,11 +7,15 @@
 
 ## Integrantes
 
-- ARIEL OMAR LECHE
-- DIEGO ARIEL GUTIERREZ MIRANDA
-- JOSE ALBERTO RUBIO
-- MARIA PAULA COBAS
-- MAURO RUBEN DE NATALE
+| Nombre                        | Correo Electrónico             | Usuario Github |
+|-------------------------------|--------------------------------|----------------|
+| Ariel Omar Leche              | ariel.leche@gmail.com          | ARielleche     |
+| Diego Ariel Gutierrez         | dgutierrez.m79@gmail.com       | Diego-wert89   |
+| José Alberto Rubio            | rubiojosealberto@gmail.com     | rubiojar       |
+| Maria Paula Coba              | mpcobas@gmail.com              | Pau-c          |
+| Mauro Ruben De Natale         | maurodenatale@gmail.com        | M3T30R0-dev    |
+
+
 
 > [!TIP]
 > [Live Demo](https://deepnote.com/workspace/test-a96860ea-b228-4e9e-a13d-9edd20f60d93/project/MP-Cs-Untitled-project-a2cd30de-aa34-492f-bd7f-baf47d78ec21/notebook/ej3u2-47c02c388b264ca69ce0f37ecfdb9215?utm_content=a2cd30de-aa34-492f-bd7f-baf47d78ec21)
@@ -27,7 +31,7 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
 
 ## PROCESO ETL 
 
-	Proceso exploratorio
+#Proceso exploratorio
             Nombre de archivo CVS descargado= streaming_songs.csv
             Cantidad de columnas: 8
             Date,Song,Artist,Rank,Last Week,Peak Position,Weeks in Charts,Image URL
@@ -36,10 +40,11 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
             Limpieza ( se borra última columna  “ image URL” )   
             Cantidad de registros (null o faltantes) por columna  
                     Date(100% ok),Song,Artist(100% ok),Rank(100% ok),Last Week(100% ok),Peak Position(100% ok),Weeks in Charts(100% ok)
-## DICCIONARIO DE DATOS DEL DATASET
+
+
+      # DICCIONARIO DE DATOS DEL DATASET
 ```
              
-
                     1-Date: Tipo: Fecha (formato yyyy/mm/dd) Descripción: Fecha en la que se registró el ranking de la canción.
                     2-Song: Tipo: Texto (string) Descripción: Nombre de la canción en el ranking.
                     3-Artist: Tipo: Texto (string) Descripción: Nombre del artista o grupo musical (puede incluir “Featuring” sí hay colaboraciones).
@@ -50,7 +55,7 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
 
               
 ```	
-## Proceso de Transformación 
+# Proceso de Transformación 
 		    Nota: usar cualquier herramienta de edición o código.
 		    Limpieza ( se borra última columna  “ image URL”)
 		    Editar CSV  creando  columna ID (tabulación “Id,”)
@@ -75,7 +80,29 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
 
 ## ⚙️ Estructura del Repositorio
 
-ariel Propone: aca detallar cada rama y que funcion cumple cada item
+UNIDAD2/
+├── .github/
+├── .ipynb_checkpoints/
+│   └── ej3u2-checkpoint.ipynb
+├── .venv/
+│   ├── etc/
+│   ├── Lib/
+│   ├── Scripts/
+│   └── share/
+├── .lock
+├── pyvenv.cfg
+├── archivos/
+│   ├── Creacion_e_insert_Dataset_Ranking_full.sql
+│   ├── dataset_artistas_CSV.csv
+│   └── streaming_songs_original.csv
+├── unidad2/
+├── .env
+├── .gitignore
+├── .python-version
+├── ej3u2.ipynb   =>>>   archivo principal NOTEBOOK
+├── pyproject.toml
+├── README.md
+└── uv.lock
 
 ## 🛠️ Requisitos e Instalación
 
@@ -90,7 +117,6 @@ ariel Propone: aca detallar cada rama y que funcion cumple cada item
 [![dotenvBadge][dotenv-shield]][dotenv-url]
 <!-- PROJECT SHIELDS -->
 
-Ariel propone : aca poner resumen de librerias, software / programas con sus versiones, link y version de github, notebook y su version,
 ***************************************************************************************************************
 PASOS PARA USAR IDE con UV y COMENZAR DESA
 ****************************************************************************************************************
