@@ -185,7 +185,7 @@ uv sync
 > 3. Elegir el kernel que tenga el nombre del proyecto.
 
 
-#### asegurarse estar en el etorno correcto y activado: De ser necesario correr en terminal: `.venv\Scripts\activate`
+#### asegurarse estar en el etorno correcto y activado: De ser necesario correr en terminal: `.venv\Scripts\activate` .venv/Scripts/activate
 #### en linux el comando es `source .venv/bin/activate`
 
 ## correr archivo en terminal con:
