@@ -178,13 +178,13 @@ uv sync
 
 ### -Elegir kernel
 >Para que el código del notebook funcione,  indicarle a VS Code que utilice el Python >que está dentro del nuevo entorno. Esto se hace dentro de la interfaz del notebook:
-
+```
 > [!IMPORTANT]
 > Abrir el archivo `.ipynb` en VS Code.
 > 1. Hacer clic en el selector del kernel (la esquina superior derecha).
 > 2. Seleccionar otro kernel.
 > 3. Elegir el kernel que tenga el nombre del proyecto.
-
+```
 
 #### asegurarse estar en el etorno correcto y activado: De ser necesario correr en terminal: `.venv\Scripts\activate` .venv/Scripts/activate
 #### en linux el comando es `source .venv/bin/activate`
