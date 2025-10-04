@@ -196,7 +196,7 @@ uv sync
 
 > - Una vez abierto el notebook .ipynb en el browser, en la esquina superior derecha Hacer clic en `ipkernel` y elegir `start python kernel -Python 3`. de ser necesario ir al menú: run -> `restart kernel and run all cells`
 
-
+``` 
 <!-- PROJECT SHIELDS VARIABLES-->
 [deepnote-shield]:https://img.shields.io/badge/Live-Deepnote-black?style=flat&labelColor=%23808080k&color=de6d40&logo=deepnote&logoColor=white
 [deepnote-url]: https://deepnote.com/
@@ -215,7 +215,7 @@ uv sync
 [jupyter-shield]:https://img.shields.io/badge/Notebook-jupyter-black?style=flat&labelColor=%23808080k&color=fec260&logo=Jupyter&logoColor=white
 [jupyter-url]: https://jupyter.org/
 
-
+``` 
 ---
 
 ## 🔄 Flujo de Trabajo del Proyecto
