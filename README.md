@@ -134,6 +134,22 @@ PASOS PARA USAR IDE con UV y COMENZAR DESA
 ```
  powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
+### - Instalar uv en la pc si es necesario (en terminal de Linux):
+
+Abrir una temrinal y ejecutar
+
+# Instalar curl si no lo tienes
+sudo apt update
+sudo apt install curl
+
+# Descargar e instalar uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Recargar el profile 
+source ~/.bashrc  # Para Bash
+# o
+source ~/.zshrc   # Para Zsh
+```
 
 ### - Clonar repo:
 ```
@@ -170,6 +186,7 @@ uv sync
 
 
 #### asegurarse estar en el etorno correcto y activado: De ser necesario correr en terminal: `.venv\Scripts\activate`
+#### en linux el comando es `source .venv/bin/activate`
 
 ## correr archivo en terminal con:
 
