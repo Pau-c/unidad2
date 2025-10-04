@@ -217,7 +217,7 @@ uv sync
 [jupyter-url]: https://jupyter.org/
 
 
----
+
 ## 🔄 Flujo de Trabajo del Proyecto
 
 Este diagrama ilustra el proceso completo, desde la obtención de datos hasta la visualización final.
