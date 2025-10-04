@@ -111,7 +111,7 @@ UNIDAD2/
 
 
 ```
----
+
 ## 🛠️ Requisitos e Instalación
 
 <!-- PROJECT SHIELDS -->
@@ -124,7 +124,7 @@ UNIDAD2/
 [![jupyterBadge][jupyter-shield]][jupyter-url]
 [![dotenvBadge][dotenv-shield]][dotenv-url]
 <!-- PROJECT SHIELDS -->
----
+
 ***************************************************************************************************************
 PASOS PARA USAR IDE con UV y COMENZAR DESA
 ****************************************************************************************************************
