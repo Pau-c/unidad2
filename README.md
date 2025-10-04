@@ -75,12 +75,6 @@ Se  guarda el dataset en Supabase, se lo recupera en un dataframe y se lo trabaj
 - En barra lateral ir a `data api`: copiar direccion de project url para usar en los siguientes pasos.
 - Para que se tenga acceso a la tabla en la barra lateral ir a authentication -> policies y `Enable read access for all users`
   Nota: se encuentra scrip de creacion de tabla e insert de los 33050 registros en repositorio=> unidad2\archivos\Creacion_e_insert_Dataset_Ranking_full.sql , podria usar la consola de supabase de 1000 regristros para insert manualmente.
-
-  En el repo puede encontrar el data dataset original, el transformado en csv a cargar en supabase y el scrip para crear tabla e insert de registros.
-  archivos/
-│   ├── Creacion_e_insert_Dataset_Ranking_full.sql
-│   ├── dataset_artistas_CSV.csv
-│   └── streaming_songs_original.csv
 ---
 ``` 
 ## ⚙️ Estructura del Repositorio
@@ -104,14 +98,11 @@ UNIDAD2/
 ├── .env
 ├── .gitignore
 ├── .python-version
-├── ej3u2.ipynb
+├── ej3u2.ipynb   =>>>   archivo principal NOTEBOOK
 ├── pyproject.toml
 ├── README.md
 └── uv.lock
-
-
-```
-
+``` 
 ## 🛠️ Requisitos e Instalación
 
 <!-- PROJECT SHIELDS -->
@@ -134,22 +125,6 @@ PASOS PARA USAR IDE con UV y COMENZAR DESA
    Abrir un pront CMD en win  o temrinal ID, ver el pront con PS:>    y ejecutar
 ```
  powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
-### - Instalar uv en la pc si es necesario (en terminal de Linux):
-
-Abrir una temrinal y ejecutar
-
-# Instalar curl si no lo tienes
-sudo apt update
-sudo apt install curl
-
-# Descargar e instalar uv
-curl -LsSf https://astral.sh/uv/install.sh | sh
-
-# Recargar el profile 
-source ~/.bashrc  # Para Bash
-# o
-source ~/.zshrc   # Para Zsh
 ```
 
 ### - Clonar repo:
@@ -178,16 +153,15 @@ uv sync
 
 ### -Elegir kernel
 >Para que el código del notebook funcione,  indicarle a VS Code que utilice el Python >que está dentro del nuevo entorno. Esto se hace dentro de la interfaz del notebook:
-```
+
 > [!IMPORTANT]
 > Abrir el archivo `.ipynb` en VS Code.
 > 1. Hacer clic en el selector del kernel (la esquina superior derecha).
 > 2. Seleccionar otro kernel.
 > 3. Elegir el kernel que tenga el nombre del proyecto.
-```
 
-#### asegurarse estar en el etorno correcto y activado: De ser necesario correr en terminal: `.venv\Scripts\activate` o .venv/Scripts/activate
-#### en linux el comando es `source .venv/bin/activate`
+
+#### asegurarse estar en el etorno correcto y activado: De ser necesario correr en terminal: `.venv\Scripts\activate`
 
 ## correr archivo en terminal con:
 
@@ -217,35 +191,60 @@ uv sync
 [jupyter-url]: https://jupyter.org/
 
 
-
 ## 🔄 Flujo de Trabajo del Proyecto
 
-Este diagrama ilustra el proceso completo, desde la obtención de datos hasta la visualización final.
+Este diagrama ilustra el proceso completo, desde la obtención de datos hasta la visualización final, pasando por las etapas clave de ETL y desarrollo en el entorno `uv`.
 
-1. **DATOS FUENTE**
-   - Descarga del archivo `streaming_songs.csv` (Kaggle).
+```mermaid
+graph TD
+    %% Estilos
+    classDef source fill:#F9E79F,stroke:#D68910,stroke-width:2px;
+    classDef etl fill:#A9CCE3,stroke:#3498DB,stroke-width:2px;
+    classDef dev fill:#D5F5E3,stroke:#2ECC71,stroke-width:2px;
+    classDef prod fill:#FADBD8,stroke:#E74C3C,stroke-width:2px;
 
-2. **PROCESO ETL (Transformación)**
-   - **Limpieza de Datos:** Eliminar columnas y normalizar nombres.
-   - **Creación de ID:** Añadir columna de identificador único.
-   - **Manejo de Nulos:** Reemplazar valores faltantes (`-` o `null`) por `0`.
-   - **Resultado:** Generación del archivo limpio `dataset_artistas_CSV_PARA_BD.csv`.
+    %% Nodos
+    A[Dataset Original - Kaggle] --> B[Descarga streaming_songs.csv];
+    B -- Archivo CSV --> C{PROCESO ETL - Transformación};
+    C --> D[Limpieza, Creación de ID, Normalización de Nulos];
+    D -- Datos Limpios --> E[dataset_artistas_CSV_PARA_BD.csv];
+    E -- Importar Data --> F[Carga a Supabase: Tabla Dataset_Ranking];
 
-3. **CARGA A LA BASE DE DATOS**
-   - Importación del CSV limpio para crear la tabla `Dataset_Ranking` en **Supabase**.
+    F -- Credenciales API --> G[Clonar Repo + Configurar .env];
+    G --> H[uv venv / uv sync: Configurar Entorno Virtual];
+    H --> I[Conexión a Supabase (usando .env)];
+    I -- Datos SQL --> J[Notebook ej3u2.ipynb: Trabajar DataFrame];
+    J -- Código Ejecutado --> K[Análisis, Exploración y Visualización con Plotly];
 
-4. **CONFIGURACIÓN DEL ENTORNO DE DESARROLLO**
-   - Clonar el repositorio y configurar las credenciales en el archivo **`.env`**.
-   - Crear y sincronizar el entorno virtual con **`uv venv`** y **`uv sync`**.
+    K -- Pruebas y Desarrollo --> L[Visualización Local (uv run jupyter lab)];
+    K -- Despliegue Cloud --> M[Live Demo en Deepnote.com];
 
-5. **ANÁLISIS Y EXPLORACIÓN (JUPYTER)**
-   - La Notebook (`ej3u2.ipynb`) se conecta a Supabase (usando el `.env`).
-   - Se recuperan los datos en un DataFrame de Pandas.
-   - Se realiza el Análisis, Exploración y **Visualización con Plotly**.
+    %% Aplicar Estilos a las Secciones
+    class A, B source;
+    class C, D, E, F etl;
+    class G, H, I, J dev;
+    class K, L, M prod;
 
-6. **VISUALIZACIÓN Y PRODUCCIÓN**
-   - **Pruebas Locales:** Ejecución con `uv run jupyter lab`.
-   - **Demo en Nube:** Demostración final en **Deepnote.com**.
-
----
-
+    %% Subgráficos (Agrupación)
+    subgraph 1. Datos Fuente
+        A
+    end
+    subgraph 2. ETL y Base de Datos (Supabase)
+        B
+        C
+        D
+        E
+        F
+    end
+    subgraph 3. Desarrollo y Análisis (Entorno UV)
+        G
+        H
+        I
+        J
+    end
+    subgraph 4. Visualización y Producción
+        K
+        L
+        M
+    end
+    
